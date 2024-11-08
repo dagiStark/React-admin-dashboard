@@ -133,7 +133,6 @@ const customerGridImage = (props) => (
     </div>
   </div>
 );
-
 const customerGridStatus = (props) => (
   <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
     <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
@@ -148,7 +147,6 @@ export const areaPrimaryXAxis = {
   edgeLabelPlacement: 'Shift',
   labelStyle: { color: 'gray' },
 };
-
 export const areaPrimaryYAxis = {
   labelFormat: '{value}%',
   lineStyle: { width: 0 },
@@ -208,7 +206,6 @@ const areaChartData = [
     { x: new Date(2011, 0, 1), y: 2.3 },
   ],
 ];
-
 export const areaCustomSeries = [
   {
     dataSource: areaChartData[0],
@@ -239,7 +236,6 @@ export const areaCustomSeries = [
     width: '2',
   },
 ];
-
 export const barChartData = [
   [
     { x: 'USA', y: 46 },
@@ -257,7 +253,6 @@ export const barChartData = [
     { x: 'CHN', y: 26 },
   ],
 ];
-
 export const barCustomSeries = [
   {
     dataSource: barChartData[0],
@@ -321,7 +316,6 @@ export const colorMappingData = [
   ['#FFA500'],
   ['#FF4040'],
 ];
-
 export const rangeColorMapping = [
   { label: '1°C to 10°C',
     start: '1',
