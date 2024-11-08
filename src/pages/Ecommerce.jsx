@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "../components";
-import { earningData } from "../constants";
+import { Button, SparkLine } from "../components";
+import { earningData, SparklineAreaData } from "../constants";
 import { GoDotFill } from "react-icons/go";
 
 const Ecommerce = () => {
@@ -90,11 +90,24 @@ const Ecommerce = () => {
                 </p>
                 <p className="text-gray-500 mt-1">Budget</p>
               </div>
-              <div>
+
+              <div className="mt-8">
                 <p>
                   <span className="text-3xl font-semibold">$48,854</span>
                 </p>
                 <p className="text-gray-500 mt-1">Expense</p>
+              </div>
+
+              <div className="mt-5 ">
+                <SparkLine
+                  currentColor="blue"
+                  id="line-sparkline"
+                  type="Line"
+                  height="80px"
+                  width="250px"
+                  data={SparklineAreaData}
+                  color="blue"
+                />
               </div>
             </div>
           </div>
