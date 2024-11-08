@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const StateContext = createContext();
 
@@ -12,6 +12,7 @@ const initialState = {
 export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
+  const [screenSize, setScreenSize] = useState(undefined);
 
   const handleClick = (name) => {
     setIsClicked({
@@ -19,6 +20,24 @@ export const ContextProvider = ({ children }) => {
       [name]: true,
     });
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
 
   return (
     <StateContext.Provider
@@ -28,6 +47,8 @@ export const ContextProvider = ({ children }) => {
         isClicked,
         setIsClicked,
         handleClick,
+        screenSize,
+        setScreenSize,
       }}
     >
       {children}

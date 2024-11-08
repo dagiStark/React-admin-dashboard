@@ -21,10 +21,11 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
       >
         <span
           style={{ background: dotColor }}
-          className="absolute inline-flex rounded-full h-2 w-2 ring-2 top-2"
-        >
-          {icon}
-        </span>
+          className={`${
+            !dotColor && "hidden"
+          } absolute inline-flex rounded-full h-2 w-2 ring-2 top-2`}
+        />
+        {icon}
       </button>
     </TooltipComponent>
   );
@@ -50,6 +51,7 @@ const Navbar = () => {
           color={`blue`}
           icon={<FiShoppingCart />}
         />
+
         <NavButton
           title={"Chat"}
           customFunc={() => handleClick("chat")}
@@ -63,6 +65,7 @@ const Navbar = () => {
           customFunc={() => handleClick("notification")}
           color={`blue`}
           icon={<RiNotification3Line />}
+          dotColor={"#03c9d7"}
         />
 
         <TooltipComponent content={"profile"} position="BottomCenter">
