@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { Sidebar, Navbar, Footer, ThemeSettings } from "./components";
+import { Sidebar, Navbar } from "./components";
 
 import "./App.css";
 import {
@@ -20,7 +20,8 @@ import {
   Employees,
   Customers,
   Kanban,
-  Editor, Calendar,
+  Editor,
+  Calendar,
 } from "./pages";
 
 const App = () => {
@@ -68,7 +69,7 @@ const App = () => {
             <Routes>
               {/* Dashboard */}
               <Route path="" element={<Ecommerce />} />
-              <Route path="/ecommerce" element="ECommerce" />
+              <Route path="/ecommerce" element={<Ecommerce />} />
 
               {/* Pages */}
               <Route path="/orders" element={<Orders />} />
