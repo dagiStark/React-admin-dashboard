@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, SparkLine } from "../components";
+import { Button, SparkLine, Stacked } from "../components";
 import { earningData, SparklineAreaData } from "../constants";
 import { GoDotFill } from "react-icons/go";
 
@@ -109,6 +109,18 @@ const Ecommerce = () => {
                   color="blue"
                 />
               </div>
+              <div className="mt-10">
+                <Button
+                  color={"white"}
+                  bgColor={"blue"}
+                  text={"Download Report"}
+                  borderRadius={"10px"}
+                />
+              </div>
+            </div>
+
+            <div>
+              <Stacked width="360px" height="360px" />
             </div>
           </div>
         </div>
