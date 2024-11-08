@@ -31,27 +31,8 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 };
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
-  
-  const handleClick = (name) => {
-    setActiveMenu(false);
-    switch (name) {
-      case "cart":
-        setActiveMenu(false);
-        break;
-      case "chat":
-        setActiveMenu(false);
-        break;
-      case "notification":
-        setActiveMenu(false);
-        break;
-      case "userProfile":
-        setActiveMenu(false);
-        break;
-      default:
-        break;
-    }
-  };
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
+    useStateContext();
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
@@ -99,6 +80,11 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
+
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );
