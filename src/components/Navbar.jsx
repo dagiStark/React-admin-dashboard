@@ -32,6 +32,26 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 
 const Navbar = () => {
   const { activeMenu, setActiveMenu } = useStateContext();
+  
+  const handleClick = (name) => {
+    setActiveMenu(false);
+    switch (name) {
+      case "cart":
+        setActiveMenu(false);
+        break;
+      case "chat":
+        setActiveMenu(false);
+        break;
+      case "notification":
+        setActiveMenu(false);
+        break;
+      case "userProfile":
+        setActiveMenu(false);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
@@ -71,9 +91,12 @@ const Navbar = () => {
           >
             <img src={avatar} alt="avatar" className="rounded-full w-8 h-8" />
             <p>
-              <span className="text-gray-400 text-14">Hi, </span> {" "}
-              <span>Michael</span>
+              <span className="text-gray-400 text-14">Hi, </span>{" "}
+              <span className="text-gray-400 font-bold ml-1 text-14">
+                Michael
+              </span>
             </p>
+            <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
       </div>
