@@ -3,22 +3,48 @@ import React from "react";
 import {
   GridComponent,
   ColumnDirective,
+  ColumnsDirective,
   Resize,
   Sort,
   ContextMenu,
   Filter,
-  Pager,
+  Page,
   ExcelExport,
   PdfExport,
   Edit,
   Inject,
 } from "@syncfusion/ej2-react-grids";
 import { Header } from "../components";
+import { ordersGrid, ordersData } from "../constants";
 
 const Orders = () => {
   return (
-    <div>
+    <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
       <Header title="Orders" category="Page" />
+      <GridComponent
+        id="gridcomp"
+        dataSource={ordersData}
+        allowPaging
+        allowSorting
+      >
+        <ColumnsDirective>
+          {ordersGrid.map((item, index) => (
+            <ColumnDirective key={index} {...item} />
+          ))}
+        </ColumnsDirective>
+        <Inject
+          services={[
+            Resize,
+            Sort,
+            Filter,
+            ContextMenu,
+            Edit,
+            ExcelExport,
+            PdfExport,
+            Page,
+          ]}
+        />
+      </GridComponent>
     </div>
   );
 };

@@ -928,7 +928,6 @@ export const ordersGrid = [
     width: "120",
     textAlign: "Center",
   },
-
   {
     field: "Location",
     headerText: "Location",
