@@ -4,6 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Sidebar, Navbar } from "./components";
 import { useStateContext } from "./contexts/ContextProvider";
+import { ThemeSettings } from "./components";
 
 import "./App.css";
 import {
@@ -67,6 +68,7 @@ const App = () => {
             </div>
 
             <div>
+              <ThemeSettings />
               <Routes>
                 {/* Dashboard */}
                 <Route path="" element={<Ecommerce />} />
